@@ -1,1 +1,11 @@
-<p>contacto works!</p>
+<div *ngIf="contacto?.redes" class="redes-sociales">
+  <h2>Redes Sociales</h2>
+  <ul>
+    <li *ngIf="contacto.redes?.facebook">
+      <a [href]="contacto.redes?.facebook" target="_blank">🌐 Facebook</a>
+    </li>
+    <li *ngIf="contacto.redes?.instagram">
+      <a [href]="contacto.redes?.instagram" target="_blank">📸 Instagram</a>
+    </li>
+  </ul>
+</div>

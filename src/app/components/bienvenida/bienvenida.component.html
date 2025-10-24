@@ -1,1 +1,29 @@
-<p>bienvenida works!</p>
+<div class="bienvenida-container">
+  <div class="hero-section">
+    <h1 class="titulo-principal">¡Hola! Soy {{ perfil.nombre }}</h1>
+    <h2 class="subtitulo">{{ perfil.profesion }}</h2>
+    <p class="descripcion">{{ perfil.descripcion }}</p>
+    <div class="botones">
+      <a routerLink="/proyectos" class="btn btn-primary">Ver Proyectos</a>
+      <a routerLink="/contacto" class="btn btn-secondary">Contactar</a>
+    </div>
+  </div>
+  
+  <div class="quick-links">
+    <h3>Explora mi perfil</h3>
+    <div class="cards">
+      <div class="card" routerLink="/sobre-mi">
+        <h4>Sobre Mí</h4>
+        <p>Conoce más sobre mi trayectoria</p>
+      </div>
+      <div class="card" routerLink="/deportes">
+        <h4>Deportes</h4>
+        <p>Mis actividades deportivas</p>
+      </div>
+      <div class="card" routerLink="/hobbies">
+        <h4>Hobbies</h4>
+        <p>Lo que me apasiona hacer</p>
+      </div>
+    </div>
+  </div>
+</div>

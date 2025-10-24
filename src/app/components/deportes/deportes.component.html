@@ -1,1 +1,22 @@
-<p>deportes works!</p>
+<div class="deportes-container">
+  <h1>Mis Deportes</h1>
+  <p class="intro">Mantenerme activo es parte importante de mi vida. Estos son los deportes que practico regularmente:</p>
+  
+  <div class="deportes-list">
+    <div *ngFor="let deporte of deportes" class="deporte-card">
+      <h3>{{ deporte.nombre }}</h3>
+      <div class="info-row">
+        <span class="label">Frecuencia:</span>
+        <span class="value">{{ deporte.frecuencia }}</span>
+      </div>
+      <div class="info-row">
+        <span class="label">Nivel:</span>
+        <span class="value nivel" [class.avanzado]="deporte.nivel === 'Avanzado'"
+                                   [class.intermedio]="deporte.nivel === 'Intermedio'">
+          {{ deporte.nivel }}
+        </span>
+      </div>
+      <p class="descripcion">{{ deporte.descripcion }}</p>
+    </div>
+  </div>
+</div>

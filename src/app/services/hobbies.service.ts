@@ -2,45 +2,35 @@ import { Injectable } from '@angular/core';
 
 export interface Hobby {
   nombre: string;
-  categoria: string;
   descripcion: string;
-  icono?: string;
+  frecuencia?: string; // ✅ añadida
+  tipo?: string;       // ✅ añadida
 }
 
 @Injectable({
   providedIn: 'root'
 })
 export class HobbiesService {
-  private hobbies: Hobby[] = [
-    {
-      nombre: 'Lectura',
-      categoria: 'Cultural',
-      descripcion: 'Me encanta leer sobre tecnología, ciencia ficción y desarrollo personal'
-    },
-    {
-      nombre: 'Videojuegos',
-      categoria: 'Entretenimiento',
-      descripcion: 'Juegos de estrategia y aventura, especialmente RPGs'
-    },
-    {
-      nombre: 'Fotografía',
-      categoria: 'Artístico',
-      descripcion: 'Fotografía de paisajes y naturaleza'
-    },
-    {
-      nombre: 'Cocinar',
-      categoria: 'Culinario',
-      descripcion: 'Experimentar con recetas de diferentes culturas'
-    }
-  ];
-
-  constructor() { }
-
   obtenerHobbies(): Hobby[] {
-    return this.hobbies;
-  }
-
-  obtenerPorCategoria(categoria: string): Hobby[] {
-    return this.hobbies.filter(h => h.categoria === categoria);
+    return [
+      { 
+        nombre: 'Fútbol', 
+        descripcion: 'Juego con amigos los fines de semana.', 
+        frecuencia: '3 veces por semana', 
+        tipo: 'Deporte' 
+      },
+      { 
+        nombre: 'Videojuegos', 
+        descripcion: 'Principalmente Dota 2 y Mobile Legends.', 
+        frecuencia: 'Casi a diario', 
+        tipo: 'Entretenimiento' 
+      },
+      { 
+        nombre: 'Música', 
+        descripcion: 'Escucho rock y practico guitarra eléctrica.', 
+        frecuencia: 'A diario', 
+        tipo: 'Arte' 
+      }
+    ];
   }
 }
