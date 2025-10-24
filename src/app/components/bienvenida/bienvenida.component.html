@@ -5,7 +5,8 @@
     </div>
 
     <div class="hero-text">
-      <h1 class="titulo-principal">¡Hola! Soy <span class="nombre">Erick Jhunior Huamán Cruz</span></h1>
+    <h1 class="titulo-principal" appHighlightOnHover [colorFondo]="'#eef2ff'"> ¡Hola! Soy {{ perfil.nombre | primeraMayuscula }}
+    </h1>
       <h2 class="subtitulo">Ingeniería de Sistemas</h2>
       <p class="descripcion">
         Apasionado por la tecnología y el desarrollo de software.<br />
