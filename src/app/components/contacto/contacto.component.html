@@ -1,11 +1,40 @@
-<div *ngIf="contacto?.redes" class="redes-sociales">
-  <h2>Redes Sociales</h2>
-  <ul>
-    <li *ngIf="contacto.redes?.facebook">
-      <a [href]="contacto.redes?.facebook" target="_blank">🌐 Facebook</a>
-    </li>
-    <li *ngIf="contacto.redes?.instagram">
-      <a [href]="contacto.redes?.instagram" target="_blank">📸 Instagram</a>
-    </li>
-  </ul>
+<div class="contacto-container">
+  <h1>Contáctame</h1>
+
+  <div class="info-contacto">
+    <p><strong>Nombre:</strong> {{ contacto.nombre | primeraMayuscula }}</p>
+    <p><strong>Correo:</strong> {{ contacto.correo }}</p>
+    <p><strong>Teléfono:</strong> {{ contacto.telefono }}</p>
+    <p *ngIf="contacto.direccion"><strong>Dirección:</strong> {{ contacto.direccion }}</p>
+  </div>
+
+  <div *ngIf="contacto?.redes" class="redes-sociales">
+    <h2>Redes Sociales</h2>
+    <ul>
+      <li *ngIf="contacto.redes?.facebook">
+        <a
+        appHighlightOnHover
+          [href]="contacto.redes?.facebook"
+          target="_blank"
+          appHighlightOnHover
+          [colorFondo]="'#1877f2'"
+          [colorTexto]="'#fff'"
+        >
+          🌐 Facebook
+        </a>
+      </li>
+      <li *ngIf="contacto.redes?.instagram">
+        <a
+        appHighlightOnHover
+          [href]="contacto.redes?.instagram"
+          target="_blank"
+          appHighlightOnHover
+          [colorFondo]="'#e1306c'"
+          [colorTexto]="'#fff'"
+        >
+          📸 Instagram
+        </a>
+      </li>
+    </ul>
+  </div>
 </div>

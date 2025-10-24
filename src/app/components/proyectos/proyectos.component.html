@@ -1,18 +1,26 @@
 <div class="proyectos-container">
   <h1>Mis Proyectos</h1>
-  
+  <p class="intro">Algunos de los trabajos y proyectos en los que he puesto mi pasión por el desarrollo:</p>
+
   <div class="proyectos-grid">
-    <div *ngFor="let proyecto of proyectos" class="proyecto-card">
-      <h3>{{ proyecto.nombre }}</h3>
-      <p class="fecha">{{ proyecto.fecha }}</p>
+    <div
+      *ngFor="let proyecto of proyectos"
+      class="proyecto-card"
+      appHighlightOnHover
+      [colorFondo]="'#eef2ff'">
+
+      <h3>{{ proyecto.nombre | primeraMayuscula }}</h3>
+      <p class="fecha">📅 {{ proyecto.fecha }}</p>
       <p class="descripcion">{{ proyecto.descripcion }}</p>
+
       <div class="tecnologias">
         <span *ngFor="let tech of proyecto.tecnologias" class="tech-tag">
           {{ tech }}
         </span>
       </div>
+
       <a *ngIf="proyecto.enlace" [href]="proyecto.enlace" target="_blank" class="ver-proyecto">
-        Ver Proyecto →
+        🔗 Ver Proyecto
       </a>
     </div>
   </div>

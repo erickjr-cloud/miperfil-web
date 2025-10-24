@@ -22,7 +22,7 @@ export class ContactoService {
     return {
       nombre: 'Erick Jr',
       correo: 'huamancruzerick@gmail.com',
-      telefono: '+51 074817819',
+      telefono: '+51 974 817 819',
       direccion: 'Andahuaylas, Apurimac, Peru',
       redes: {
         facebook: 'https://www.facebook.com/erick.jr.huaman.cruz/?locale=es_LA',

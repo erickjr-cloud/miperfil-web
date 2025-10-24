@@ -1,8 +1,8 @@
-import { PrimeraMayusculaPipePipe } from './primera-mayuscula.pipe-pipe';
+import { PrimeraMayusculaPipe } from './primera-mayuscula.pipe';
 
-describe('PrimeraMayusculaPipePipe', () => {
-  it('create an instance', () => {
-    const pipe = new PrimeraMayusculaPipePipe();
+describe('PrimeraMayusculaPipe', () => {
+  it('should create an instance', () => {
+    const pipe = new PrimeraMayusculaPipe();
     expect(pipe).toBeTruthy();
   });
 });

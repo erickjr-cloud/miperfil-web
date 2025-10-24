@@ -1,15 +1,15 @@
 <div class="sobre-mi-container">
   <h1>Sobre Mí</h1>
-  
-  <section class="info-personal">
+
+  <section class="info-personal" appHighlightOnHover [colorFondo]="'#eef2ff'">
     <h2>Información Personal</h2>
-    <p><strong>Nombre:</strong> {{ perfil.nombre }}</p>
+    <p><strong>Nombre:</strong> {{ perfil.nombre | primeraMayuscula }}</p>
     <p><strong>Profesión:</strong> {{ perfil.profesion }}</p>
     <p><strong>Ubicación:</strong> {{ perfil.ubicacion }}</p>
     <p class="bio">{{ perfil.descripcion }}</p>
   </section>
 
-  <section class="habilidades">
+  <section class="habilidades" appHighlightOnHover [colorFondo]="'#f5f2ff'">
     <h2>Habilidades Técnicas</h2>
     <div class="habilidades-list">
       <span *ngFor="let habilidad of habilidades" class="habilidad-tag">
@@ -18,7 +18,7 @@
     </div>
   </section>
 
-  <section class="experiencia">
+  <section class="experiencia" appHighlightOnHover [colorFondo]="'#f0f8ff'">
     <h2>Experiencia Laboral</h2>
     <div *ngFor="let exp of experiencia" class="experiencia-item">
       <h3>{{ exp.puesto }}</h3>

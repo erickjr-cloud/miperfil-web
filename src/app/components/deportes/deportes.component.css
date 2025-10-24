@@ -1,68 +1,80 @@
+/* 🎯 Contenedor principal */
 .deportes-container {
   max-width: 1000px;
   margin: 0 auto;
   padding: 2rem;
-  background-color: #f9f9f9;
-  border-radius: 10px;
+  text-align: center;
+  background: linear-gradient(135deg, #f0f3ff, #ffffff);
+  border-radius: 12px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+  animation: fadeIn 0.8s ease-in-out;
 }
 
+/* 🏷️ Títulos */
 h1 {
-  color: #333;
-  font-size: 2.5rem;
+  font-size: 2.4rem;
+  font-weight: bold;
+  color: #3b3b98;
   margin-bottom: 1rem;
-  text-align: center;
 }
 
 .intro {
-  text-align: center;
-  color: #666;
   font-size: 1.1rem;
-  margin-bottom: 3rem;
+  color: #666;
+  margin-bottom: 2.5rem;
 }
 
+/* 📦 Lista de deportes */
 .deportes-list {
   display: grid;
-  gap: 2rem;
+  gap: 1.5rem;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
 }
 
+/* 🧩 Tarjeta individual */
 .deporte-card {
-  background: white;
-  padding: 2rem;
+  background-color: #ffffff;
+  padding: 1.8rem;
   border-radius: 10px;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-  border-left: 5px solid #667eea;
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  text-align: left;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .deporte-card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  transform: translateY(-6px);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
 }
 
+/* 🏅 Título del deporte */
 .deporte-card h3 {
-  color: #667eea;
-  font-size: 1.8rem;
+  color: #3b3b98;
+  font-size: 1.5rem;
   margin-bottom: 1rem;
+  text-transform: capitalize;
 }
 
+/* 🧾 Filas de información */
 .info-row {
   display: flex;
-  margin-bottom: 0.8rem;
+  justify-content: space-between;
+  margin-bottom: 0.5rem;
 }
 
 .label {
   font-weight: bold;
-  color: #333;
-  width: 120px;
+  color: #444;
 }
 
 .value {
-  color: #666;
+  color: #555;
 }
 
+/* 🎯 Nivel */
 .nivel {
-  padding: 0.2rem 0.8rem;
-  border-radius: 15px;
+  padding: 0.3rem 0.8rem;
+  border-radius: 12px;
+  font-weight: 600;
   font-size: 0.9rem;
 }
 
@@ -76,8 +88,21 @@ h1 {
   color: #333;
 }
 
+/* 📜 Descripción */
 .descripcion {
   margin-top: 1rem;
-  color: #666;
   line-height: 1.5;
+  color: #555;
+}
+
+/* ✨ Animación suave de aparición */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }

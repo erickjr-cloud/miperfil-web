@@ -1,44 +1,157 @@
+/* 🔹 Fondo degradado y estructura general */
 .navbar {
-  background-color: #333;
+  background: linear-gradient(90deg, #6a11cb, #2575fc);
   padding: 1rem 0;
-  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  animation: fadeDown 0.5s ease-in-out;
 }
 
 .nav-container {
   max-width: 1200px;
   margin: 0 auto;
+  padding: 0 2rem;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 0 2rem;
 }
 
+/* 🔸 Logo */
 .nav-logo {
   color: white;
-  font-size: 1.5rem;
-  margin: 0;
+  font-size: 1.8rem;
+  font-weight: 800;
+  letter-spacing: 1px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  transition: transform 0.3s ease, text-shadow 0.3s ease;
 }
 
+.nav-logo:hover {
+  transform: scale(1.05);
+  text-shadow: 0 0 12px rgba(255, 255, 255, 0.6);
+}
+
+/* ⚽🎮 Iconos animados */
+.emoji {
+  font-size: 1.9rem;
+  display: inline-block;
+  animation: bounce 2s infinite ease-in-out;
+}
+
+.emoji:nth-child(1) {
+  animation-delay: 0s;
+}
+
+.emoji:nth-child(2) {
+  animation-delay: 0.5s;
+}
+
+@keyframes bounce {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-5px);
+  }
+}
+
+/* 🔹 Menú de navegación */
 .nav-menu {
   display: flex;
   list-style: none;
-  gap: 2rem;
+  gap: 1.5rem;
   margin: 0;
-  padding: 0;
+  transition: all 0.3s ease;
+}
+
+.nav-menu li {
+  position: relative;
 }
 
 .nav-menu a {
   color: white;
   text-decoration: none;
+  font-weight: 600;
+  font-size: 1rem;
   padding: 0.5rem 1rem;
-  border-radius: 4px;
-  transition: background-color 0.3s;
+  border-radius: 8px;
+  transition: all 0.3s ease;
 }
 
+/* Hover elegante */
 .nav-menu a:hover {
-  background-color: #555;
+  background-color: rgba(255, 255, 255, 0.2);
+  transform: scale(1.08);
 }
 
+/* Enlace activo */
 .nav-menu a.active {
-  background-color: #007bff;
+  background-color: white;
+  color: #2575fc;
+  font-weight: 700;
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.4);
+}
+
+/* 🔸 Menú hamburguesa para móvil */
+.menu-toggle {
+  display: none;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 26px;
+  height: 20px;
+  cursor: pointer;
+}
+
+.menu-toggle span {
+  height: 3px;
+  width: 100%;
+  background-color: white;
+  border-radius: 2px;
+  transition: all 0.3s ease;
+}
+
+/* 🔹 Responsive */
+@media (max-width: 768px) {
+  .menu-toggle {
+    display: flex;
+  }
+
+  .nav-menu {
+    position: absolute;
+    top: 70px;
+    right: 0;
+    background: linear-gradient(135deg, #6a11cb, #2575fc);
+    flex-direction: column;
+    width: 100%;
+    text-align: center;
+    padding: 1rem 0;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.4s ease-in-out;
+  }
+
+  .nav-menu.active {
+    max-height: 350px;
+  }
+
+  .nav-menu li {
+    margin: 0.5rem 0;
+  }
+}
+
+/* ✨ Animaciones */
+@keyframes fadeDown {
+  from {
+    transform: translateY(-15px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
 }
