@@ -5,16 +5,26 @@
   </p>
 
   <div class="hobbies-list">
-    <div *ngFor="let hobby of hobbies" class="hobby-card">
-      <h3>{{ hobby.nombre }}</h3>
+    <!-- 🔹 Usamos la directiva y la pipe aquí -->
+    <div
+      *ngFor="let hobby of hobbies"
+      class="hobby-card"
+      appHighlightOnHover
+      [colorFondo]="'#f0f8ff'">
+      
+      <!-- Pipe primeraMayuscula aplicada -->
+      <h3>{{ hobby.nombre | primeraMayuscula }}</h3>
+
       <div class="info-row">
         <span class="label">Frecuencia:</span>
         <span class="value">{{ hobby.frecuencia }}</span>
       </div>
+
       <div class="info-row" *ngIf="hobby.tipo">
         <span class="label">Tipo:</span>
         <span class="value">{{ hobby.tipo }}</span>
       </div>
+
       <p class="descripcion">{{ hobby.descripcion }}</p>
     </div>
   </div>
