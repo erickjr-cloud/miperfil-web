@@ -1,34 +1,19 @@
 <div class="bienvenida-container">
-  <div class="hero-section" appHighlightOnHover [colorFondo]="'#eefaff'">
-    <h1 class="titulo-principal">¡Hola! Soy {{ perfil.nombre | primeraMayuscula }}</h1>
-    <h2 class="subtitulo">{{ perfil.profesion }}</h2>
-    <p class="descripcion">{{ perfil.descripcion }}</p>
-    <div class="botones">
-    <a routerLink="/proyectos"
-     class="btn btn-primary"
-     appHighlightOnHover
-     [colorFondo]="'#e6f00f'">Ver Proyectos</a>
+  <div class="hero-section">
+    <div class="hero-image">
+      <img src="assets/perfil-erick.jpg" alt="Foto de Erick" class="perfil-foto" />
+    </div>
 
-    <a routerLink="/contacto"
-     class="btn btn-secondary"
-     appHighlightOnHover
-     [colorFondo]="'#f0e6f'">Contactar</a>
-</div>
-
-  <div class="quick-links">
-    <h3>Explora mi perfil</h3>
-    <div class="cards">
-      <div class="card" routerLink="/sobre-mi" appHighlightOnHover [colorFondo]="'#f0f8ff'">
-        <h4>Sobre Mí</h4>
-        <p>Conoce más sobre mi trayectoria</p>
-      </div>
-      <div class="card" routerLink="/deportes" appHighlightOnHover [colorFondo]="'#f0f8ff'">
-        <h4>Deportes</h4>
-        <p>Mis actividades deportivas</p>
-      </div>
-      <div class="card" routerLink="/hobbies" appHighlightOnHover [colorFondo]="'#f0f8ff'">
-        <h4>Hobbies</h4>
-        <p>Lo que me apasiona hacer</p>
+    <div class="hero-text">
+      <h1 class="titulo-principal">¡Hola! Soy <span class="nombre">Erick Jhunior Huamán Cruz</span></h1>
+      <h2 class="subtitulo">Ingeniería de Sistemas</h2>
+      <p class="descripcion">
+        Apasionado por la tecnología y el desarrollo de software.<br />
+        Siempre aprendiendo cosas nuevas.
+      </p>
+      <div class="botones">
+        <a routerLink="/proyectos" class="btn btn-primary">Ver Proyectos</a>
+        <a routerLink="/contacto" class="btn btn-secondary">Contactar</a>
       </div>
     </div>
   </div>

@@ -1,18 +1,17 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { ProyectosComponent } from './proyectos.component'; // ✅ ruta y nombre correctos
 
-import { Proyectos } from './proyectos';
-
-describe('Proyectos', () => {
-  let component: Proyectos;
-  let fixture: ComponentFixture<Proyectos>;
+describe('ProyectosComponent', () => {
+  let component: ProyectosComponent;
+  let fixture: ComponentFixture<ProyectosComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [Proyectos]
+      imports: [ProyectosComponent] // ✅ ahora usa el nombre correcto del componente
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(Proyectos);
+    fixture = TestBed.createComponent(ProyectosComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

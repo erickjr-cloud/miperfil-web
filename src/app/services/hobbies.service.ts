@@ -15,7 +15,7 @@ export class HobbiesService {
     return [
       { 
         nombre: 'Fútbol', 
-        descripcion: 'Juego con amigos los fines de semana.', 
+        descripcion: 'Juego con amigos los fines de semana, y un equipo local por temporadas', 
         frecuencia: '3 veces por semana', 
         tipo: 'Deporte' 
       },
@@ -27,7 +27,7 @@ export class HobbiesService {
       },
       { 
         nombre: 'Música', 
-        descripcion: 'Escucho rock y practico guitarra eléctrica.', 
+        descripcion: 'Para gustos hay colores jsjs, escucho de todo, soy feliz con un  par de auriculares y a full volumen cuando hago caminata', 
         frecuencia: 'A diario', 
         tipo: 'Arte' 
       }

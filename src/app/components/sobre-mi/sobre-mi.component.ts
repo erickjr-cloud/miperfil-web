@@ -15,26 +15,35 @@ export class SobreMiComponent implements OnInit {
   perfil!: PerfilInfo;
 
   habilidades: string[] = [
-    'Angular',
-    'TypeScript',
-    'JavaScript',
-    'HTML/CSS',
-    'Node.js',
-    'Git'
+    'Edición y renderizado de videos',
+    'Trabajo en equipo',
+    'Aprendizaje rápido',
+    'Comunicación efectiva',
+    'Disciplina deportiva',
+    'Análisis y resolución de problemas'
   ];
 
-  experiencia = [
+  experiencia: { puesto: string; empresa: string; periodo: string; descripcion: string }[] = [
     {
-      puesto: 'Desarrollador Frontend',
-      empresa: 'Tech Company',
+      puesto: 'Ayudante de construcción',
+      empresa: 'Independiente',
       periodo: '2023 - Presente',
-      descripcion: 'Desarrollo de aplicaciones web modernas con Angular y React.'
+      descripcion:
+        'Apoyo en labores de construcción, organización del trabajo y colaboración en equipo en obras locales.'
     },
     {
-      puesto: 'Desarrollador Junior',
-      empresa: 'StartUp XYZ',
-      periodo: '2021 - 2023',
-      descripcion: 'Implementación y mantenimiento de sitios web y sistemas internos.'
+      puesto: 'Editor de video (freelance)',
+      empresa: 'Proyectos personales y universitarios',
+      periodo: '2022 - Presente',
+      descripcion:
+        'Edición, montaje y renderizado de videos para redes sociales y proyectos académicos utilizando herramientas como CapCut y Premiere Pro.'
+    },
+    {
+      puesto: 'Jugador competitivo de Mobile Legends',
+      empresa: 'Competencias universitarias',
+      periodo: '2021 - 2024',
+      descripcion:
+        'Participación en torneos universitarios representando a mi universidad. Alcancé el Top 7 veces nacional en Perú y clasifiqué a regionales, en el torneo de interuniversidades"INTERU".'
     }
   ];
 

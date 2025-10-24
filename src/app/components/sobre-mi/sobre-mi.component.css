@@ -1,101 +1,131 @@
+/* === Contenedor principal === */
 .sobre-mi-container {
   max-width: 1000px;
-  margin: 2rem auto;
-  padding: 2.5rem;
-  background: linear-gradient(135deg, #7a6eff, #b48cff);
-  border-radius: 15px;
-  color: #fff;
-  box-shadow: 0 4px 25px rgba(0, 0, 0, 0.2);
-  animation: fadeIn 0.8s ease-in-out;
-}
-
-h1 {
-  text-align: center;
-  font-size: 2.5rem;
-  font-weight: 800;
-  margin-bottom: 2rem;
-  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
-}
-
-/* 🔹 Secciones internas */
-section {
-  background: #fff;
+  margin: 60px auto;
+  padding: 40px;
+  border-radius: 20px;
+  background: linear-gradient(135deg, #f8f9ff 0%, #ffffff 100%);
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
+  font-family: 'Poppins', sans-serif;
   color: #333;
-  border-radius: 10px;
-  padding: 1.8rem;
+  transition: all 0.3s ease;
+}
+
+/* === Título principal === */
+.sobre-mi-container h1 {
+  text-align: center;
+  color: #4a4ae6;
+  font-size: 2.8rem;
   margin-bottom: 2rem;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-  transition: transform 0.3s ease;
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+/* === Secciones (info, habilidades, experiencia) === */
+section {
+  background: white;
+  padding: 25px 30px;
+  border-radius: 15px;
+  margin-bottom: 25px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 section:hover {
   transform: translateY(-5px);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
 }
 
-h2 {
-  color: #4a4ad3;
+/* === Subtítulos === */
+section h2 {
+  color: #4a4ae6;
+  font-size: 1.6rem;
   margin-bottom: 1rem;
-  font-weight: 700;
-  font-size: 1.5rem;
+  position: relative;
 }
 
-/* 🧠 Habilidades */
+section h2::after {
+  content: "";
+  display: block;
+  width: 60px;
+  height: 3px;
+  background: #4a4ae6;
+  margin-top: 5px;
+  border-radius: 2px;
+}
+
+/* === Información personal === */
+.bio {
+  margin-top: 10px;
+  color: #555;
+  line-height: 1.6;
+  font-size: 1.05rem;
+}
+
+/* === Habilidades === */
 .habilidades-list {
   display: flex;
   flex-wrap: wrap;
-  gap: 0.6rem;
+  gap: 12px;
+  margin-top: 10px;
 }
 
 .habilidad-tag {
-  background: #e5e4ff;
-  color: #4a4ad3;
-  padding: 0.5rem 1rem;
-  border-radius: 25px;
-  font-weight: 600;
-  font-size: 0.9rem;
-  transition: all 0.3s ease;
+  background: linear-gradient(135deg, #4a4ae6, #6f86ff);
+  color: white;
+  padding: 10px 16px;
+  border-radius: 20px;
+  font-size: 0.95rem;
+  font-weight: 500;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
 .habilidad-tag:hover {
-  background: #4a4ad3;
-  color: #fff;
   transform: scale(1.05);
+  box-shadow: 0 4px 12px rgba(74, 74, 230, 0.3);
 }
 
-/* 💼 Experiencia */
+/* === Experiencia === */
 .experiencia-item {
-  margin-bottom: 1.2rem;
-  border-left: 4px solid #4a4ad3;
-  padding-left: 1rem;
+  margin-bottom: 1.5rem;
+  background-color: #f9f9ff;
+  padding: 20px;
+  border-left: 5px solid #4a4ae6;
+  border-radius: 10px;
+  transition: all 0.3s ease;
+}
+
+.experiencia-item:hover {
+  background-color: #eef0ff;
+  transform: translateX(5px);
 }
 
 .experiencia-item h3 {
-  color: #4a4ad3;
-  font-weight: 700;
-  font-size: 1.2rem;
+  color: #333;
+  font-size: 1.3rem;
+  margin-bottom: 0.3rem;
 }
 
 .empresa {
-  color: #777;
-  font-size: 0.95rem;
-  margin-bottom: 0.4rem;
-}
-
-/* ✨ Bio */
-.bio {
-  margin-top: 1rem;
+  color: #666;
   font-style: italic;
-  line-height: 1.6;
+  margin-bottom: 0.5rem;
 }
 
-/* 🌟 Animación de entrada */
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-    transform: translateY(15px);
+/* === Responsive === */
+@media (max-width: 768px) {
+  .sobre-mi-container {
+    padding: 25px;
   }
-  to {
-    opacity: 1;
-    transform: translateY(0);
+
+  section {
+    padding: 20px;
+  }
+
+  .habilidad-tag {
+    font-size: 0.85rem;
+  }
+
+  h1 {
+    font-size: 2.2rem;
   }
 }

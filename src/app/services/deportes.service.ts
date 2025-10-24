@@ -20,7 +20,7 @@ export class DeportesService {
     },
     {
       nombre: 'Natación',
-      frecuencia: '2 veces por semana',
+      frecuencia: '2 veces cada 3 semanas',
       nivel: 'Avanzado',
       descripcion: 'Entreno para mantener resistencia cardiovascular'
     },
