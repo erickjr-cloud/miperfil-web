@@ -1,10 +1,10 @@
 import { Component } from '@angular/core';
-import { RouterLink, RouterLinkActive } from '@angular/router';
+import { RouterModule } from '@angular/router'; // ✅ Importa RouterModule completo
 
 @Component({
   selector: 'app-navbar',
   standalone: true,
-  imports: [RouterLink, RouterLinkActive],
+  imports: [RouterModule], // ✅ Esto habilita routerLink, routerLinkActive y routerLinkActiveOptions
   templateUrl: './navbar.html',
   styleUrls: ['./navbar.css']
 })
