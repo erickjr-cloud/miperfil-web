@@ -1,14 +1,34 @@
 <div class="proyectos-container">
   <h1>Mis Proyectos</h1>
-  <p class="intro">Estos son algunos de los proyectos que tengo en mente, que ojalá DIOS me permita y que deseo desarrollar como futuro Ingeniero de Sistemas.:</p>
+  <p class="intro">
+    Estos son algunos de los proyectos que tengo en mente, que ojalá DIOS me permita desarrollar como futuro Ingeniero de Sistemas.
+  </p>
 
-  <div class="proyectos-grid">
+  <!-- 🟦 TWO-WAY BINDING -->
+  <input
+    type="text"
+    [(ngModel)]="filtro"
+    placeholder="Buscar proyecto por nombre..."
+    class="input-busqueda"
+  />
+
+  <!-- 🟩 INTERPOLACIÓN -->
+  <p class="busqueda-actual">Buscando: {{ filtro || 'Todos los proyectos' }}</p>
+
+  <!-- 🕓 Indicador de carga (Promesa en acción) -->
+  <p *ngIf="cargando" class="cargando">
+    ⏳ Cargando proyectos, por favor espera...
+  </p>
+
+  <div class="proyectos-grid" *ngIf="!cargando">
+    <!-- 🟨 *ngFor -->
     <div
-      *ngFor="let proyecto of proyectos"
+      *ngFor="let proyecto of proyectosFiltrados"
       class="proyecto-card"
       appHighlightOnHover
-      [colorFondo]="'#eef2ff'">
-
+      [colorFondo]="'#eef2ff'"
+      (click)="mostrarDetalles(proyecto)"
+    >
       <h3>{{ proyecto.nombre | primeraMayuscula }}</h3>
       <p class="fecha">📅 {{ proyecto.fecha }}</p>
       <p class="descripcion">{{ proyecto.descripcion }}</p>
@@ -24,4 +44,11 @@
       </a>
     </div>
   </div>
+
+  <!-- 🔽 Comunicación Padre ↔ Hijo -->
+  <app-proyecto-detalle
+    *ngIf="proyectoSeleccionado"
+    [proyecto]="proyectoSeleccionado"
+    (cerrar)="cerrarDetalle()"
+  ></app-proyecto-detalle>
 </div>

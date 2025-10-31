@@ -9,10 +9,11 @@
       *ngFor="let deporte of deportes"
       class="deporte-card"
       appHighlightOnHover
-      [colorFondo]="'#eef1ff'">
-      
+      [colorFondo]="'#eef1ff'"
+      (click)="seleccionarDeporte(deporte)"
+    >
       <h3>{{ deporte.nombre | primeraMayuscula }}</h3>
-      
+
       <div class="info-row">
         <span class="label">Frecuencia:</span>
         <span class="value">{{ deporte.frecuencia }}</span>
@@ -20,9 +21,11 @@
 
       <div class="info-row">
         <span class="label">Nivel:</span>
-        <span class="value nivel"
-              [class.avanzado]="deporte.nivel === 'Avanzado'"
-              [class.intermedio]="deporte.nivel === 'Intermedio'">
+        <span
+          class="value nivel"
+          [class.avanzado]="deporte.nivel === 'Avanzado'"
+          [class.intermedio]="deporte.nivel === 'Intermedio'"
+        >
           {{ deporte.nivel }}
         </span>
       </div>
@@ -30,4 +33,9 @@
       <p class="descripcion">{{ deporte.descripcion }}</p>
     </div>
   </div>
+
+  <!-- ✅ Confirmación visual -->
+  <p class="mensaje-enviado" *ngIf="mensajeEnviado">
+    📤 {{ mensajeEnviado }}
+  </p>
 </div>

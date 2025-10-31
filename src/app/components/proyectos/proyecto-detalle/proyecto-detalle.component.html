@@ -1,0 +1,14 @@
+<div class="detalle-container" *ngIf="proyecto">
+  <h2>{{ proyecto.nombre }}</h2>
+  <p><strong>Fecha:</strong> {{ proyecto.fecha }}</p>
+  <p><strong>Descripción:</strong> {{ proyecto.descripcion }}</p>
+
+  <div class="tecnologias">
+    <strong>Tecnologías:</strong>
+    <span *ngFor="let tech of proyecto.tecnologias" class="tech-tag">
+      {{ tech }}
+    </span>
+  </div>
+
+  <button class="cerrar-btn" (click)="cerrarDetalle()">Cerrar Detalle</button>
+</div>
