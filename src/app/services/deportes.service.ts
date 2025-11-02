@@ -15,13 +15,13 @@ export class DeportesService {
     {
       nombre: 'Fútbol',
       frecuencia: '3 veces por semana',
-      nivel: 'Intermedio',
+      nivel: 'Avanzado',
       descripcion: 'Juego en un equipo local los fines de semana'
     },
     {
       nombre: 'Natación',
       frecuencia: '2 veces cada 3 semanas',
-      nivel: 'Avanzado',
+      nivel: 'Intermedio',
       descripcion: 'Entreno para mantener resistencia cardiovascular'
     },
     {

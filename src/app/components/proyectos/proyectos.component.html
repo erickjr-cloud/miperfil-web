@@ -8,6 +8,7 @@
   <input
     type="text"
     [(ngModel)]="filtro"
+    (input)="filtrarProyectos()"
     placeholder="Buscar proyecto por nombre..."
     class="input-busqueda"
   />
@@ -20,8 +21,8 @@
     ⏳ Cargando proyectos, por favor espera...
   </p>
 
-  <div class="proyectos-grid" *ngIf="!cargando">
-    <!-- 🟨 *ngFor -->
+  <!-- 🟩 Muestra proyectos cuando hay -->
+  <div class="proyectos-grid" *ngIf="!cargando && proyectosFiltrados.length > 0">
     <div
       *ngFor="let proyecto of proyectosFiltrados"
       class="proyecto-card"
@@ -44,6 +45,11 @@
       </a>
     </div>
   </div>
+
+  <!-- 🚫 Mensaje si no hay proyectos -->
+  <p *ngIf="!cargando && proyectosFiltrados.length === 0" class="sin-resultados">
+    ❌ No se encontraron proyectos para mostrar.
+  </p>
 
   <!-- 🔽 Comunicación Padre ↔ Hijo -->
   <app-proyecto-detalle

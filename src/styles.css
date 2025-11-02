@@ -1,41 +1,82 @@
-/* 🌈 Fondo global y reset general */
+/* === RESET GENERAL === */
 html, body {
   height: 100%;
   margin: 0;
   padding: 0;
-  background: linear-gradient(135deg, #6a11cb 0%, #2575fc 100%);
-  background-attachment: fixed; /* hace que el degradado no se mueva */
+  background-color: #ffffff;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  color: white;
+  color: #1e293b;
 }
 
-/* 🌟 Transiciones suaves y aspecto moderno */
+/* Transiciones suaves */
 * {
   box-sizing: border-box;
-  transition: all 0.3s ease;
+  transition: all 0.25s ease;
 }
 
-/* 🧭 Navbar (opcional: mejora visual del header) */
+/* === NAVBAR === */
 nav {
-  background-color: rgba(0, 0, 0, 0.85);
-  backdrop-filter: blur(5px);
-  color: white;
+  background-color: #ffffff;
+  border-bottom: 1px solid #e5e7eb;
+  color: #1e293b;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.03);
+  backdrop-filter: blur(6px);
 }
 
-/* 🔹 Enlaces generales */
-a {
+nav a {
+  color: #1e293b;
   text-decoration: none;
-  color: inherit;
 }
 
-/* ✨ Scrollbar más limpio */
-::-webkit-scrollbar {
-  width: 8px;
+nav a:hover {
+  color: #2563eb;
 }
+
+/* === SCROLLBAR === */
+::-webkit-scrollbar { width: 8px; }
 ::-webkit-scrollbar-thumb {
-  background-color: rgba(255, 255, 255, 0.3);
+  background-color: rgba(0, 0, 0, 0.15);
   border-radius: 4px;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background-color: rgba(255, 255, 255, 0.5);
+  background-color: rgba(0, 0, 0, 0.3);
+}
+
+/* === BOTONES === */
+.btn {
+  padding: 0.8rem 1.5rem;
+  border: 2px solid #2563eb;
+  border-radius: 6px;
+  text-decoration: none;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.btn-primary {
+  background-color: #2563eb;
+  color: #fff;
+}
+
+.btn-primary:hover {
+  background-color: #1d4ed8;
+  transform: translateY(-2px);
+}
+
+.btn-secondary {
+  background-color: transparent;
+  color: #2563eb;
+}
+
+.btn-secondary:hover {
+  background-color: #2563eb;
+  color: white;
+  transform: translateY(-2px);
+}
+
+/* === TARJETAS BASE === */
+.card {
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.06);
+  padding: 1.5rem;
 }

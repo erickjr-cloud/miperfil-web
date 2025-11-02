@@ -1,52 +1,156 @@
+/* === CONTENEDOR PRINCIPAL === */
 .contacto-container {
-  max-width: 700px;
-  margin: 3rem auto;
-  padding: 2rem;
-  background: rgba(255, 255, 255, 0.1);
-  border-radius: 15px;
-  backdrop-filter: blur(10px);
-  color: #fff;
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
+  position: relative;
+  min-height: 100vh;
+  width: 100%;
+  padding: 3rem 2rem;
+  text-align: center;
+  z-index: 2;
+  background: #0b0b0b url("/img/fondo-principal.jpg") no-repeat center center fixed;
+  background-size: cover;
+  overflow: hidden;
 }
 
+/* 🌒 Capa oscura elegante */
+.contacto-container::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(10, 10, 10, 0.85);
+  z-index: 1;
+}
+
+/* Todo el contenido visible */
+.contacto-container > * {
+  position: relative;
+  z-index: 3;
+}
+
+/* === TÍTULO PRINCIPAL === */
 h1 {
-  text-align: center;
-  font-size: 2.2rem;
-  margin-bottom: 1.5rem;
-  color: #fff;
+  font-size: 2.6rem;
+  font-weight: 800;
+  color: #fff8dc;
+  text-shadow: 0 0 18px rgba(255, 215, 0, 0.7);
+  margin-bottom: 2rem;
+  animation: fadeIn 1s ease-in-out;
+  letter-spacing: 1px;
+}
+
+/* === INFO DE CONTACTO === */
+.info-contacto {
+  background: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(14px);
+  border-radius: 18px;
+  padding: 2rem 2.5rem;
+  max-width: 600px;
+  margin: 0 auto 2rem auto;
+  box-shadow: 0 6px 25px rgba(255, 215, 0, 0.15);
+  border: 1px solid rgba(255, 215, 0, 0.25);
+  animation: fadeIn 1.3s ease-in-out;
+  transition: all 0.4s ease;
+}
+
+/* Efecto al pasar sobre la tarjeta */
+.info-contacto:hover {
+  box-shadow: 0 10px 35px rgba(255, 215, 0, 0.35);
+  border-color: rgba(255, 215, 0, 0.6);
+  transform: translateY(-4px);
 }
 
 .info-contacto p {
-  font-size: 1.1rem;
-  margin: 0.5rem 0;
-  color: #eaeaea;
+  font-size: 1.15rem;
+  margin: 0.6rem 0;
+  color: #fff8dc;
 }
 
+.info-contacto strong {
+  color: #ffd700;
+  text-shadow: 0 0 10px rgba(255, 215, 0, 0.4);
+}
+
+/* === REDES SOCIALES === */
 .redes-sociales {
-  margin-top: 2rem;
+  margin-top: 2.5rem;
+  animation: fadeIn 1.5s ease-in-out;
 }
 
 .redes-sociales h2 {
-  font-size: 1.6rem;
-  margin-bottom: 1rem;
-  color: #fff;
+  font-size: 1.9rem;
+  color: #ffd700;
+  text-shadow: 0 0 10px rgba(255, 215, 0, 0.5);
+  margin-bottom: 1.5rem;
+  font-weight: 700;
 }
 
+/* Lista de redes */
 .redes-sociales ul {
   list-style: none;
   padding: 0;
   display: flex;
   justify-content: center;
-  gap: 1rem;
+  gap: 1.5rem;
+  flex-wrap: wrap;
 }
 
+/* Botones de redes sociales */
 .redes-sociales a {
   display: inline-block;
-  padding: 0.7rem 1.2rem;
-  border-radius: 8px;
+  padding: 0.8rem 1.6rem;
+  border-radius: 10px;
   text-decoration: none;
-  font-weight: 600;
-  color: white;
-  transition: all 0.3s ease;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  font-weight: 700;
+  font-size: 1.05rem;
+  letter-spacing: 0.5px;
+  color: #fff8dc;
+  background: linear-gradient(90deg, rgba(255, 215, 0, 0.25), rgba(255, 165, 0, 0.25));
+  border: 1px solid rgba(255, 215, 0, 0.3);
+  box-shadow: 0 4px 15px rgba(255, 215, 0, 0.15);
+  transition: all 0.4s ease;
+}
+
+/* Hover con brillo dorado */
+.redes-sociales a:hover {
+  background: linear-gradient(90deg, rgba(255, 215, 0, 0.6), rgba(255, 165, 0, 0.6));
+  color: #1a1a1a;
+  box-shadow: 0 0 25px rgba(255, 215, 0, 0.6);
+  transform: scale(1.08);
+  text-shadow: 0 0 10px rgba(255, 215, 0, 0.6);
+}
+
+/* === ANIMACIONES === */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(25px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* === RESPONSIVE === */
+@media (max-width: 768px) {
+  .contacto-container {
+    padding: 2rem 1rem;
+  }
+
+  h1 {
+    font-size: 2rem;
+  }
+
+  .info-contacto {
+    padding: 1.5rem;
+  }
+
+  .redes-sociales ul {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .redes-sociales a {
+    width: 80%;
+    text-align: center;
+  }
 }

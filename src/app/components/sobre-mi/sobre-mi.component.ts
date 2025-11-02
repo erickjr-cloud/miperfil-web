@@ -12,7 +12,15 @@ import { HighlightOnHoverDirective } from '../../directives/highlight-on-hover.d
   styleUrls: ['./sobre-mi.component.css']
 })
 export class SobreMiComponent implements OnInit {
-  perfil!: PerfilInfo;
+  perfil: PerfilInfo = {
+    nombre: '',
+    profesion: '',
+    descripcion: '',
+    email: '',
+    telefono: '',
+    ubicacion: '',
+    github: ''
+  };
 
   habilidades: string[] = [
     'Edición y renderizado de videos',
@@ -23,7 +31,7 @@ export class SobreMiComponent implements OnInit {
     'Análisis y resolución de problemas'
   ];
 
-  experiencia: { puesto: string; empresa: string; periodo: string; descripcion: string }[] = [
+  experiencia = [
     {
       puesto: 'Ayudante de construcción',
       empresa: 'Independiente',
@@ -43,13 +51,14 @@ export class SobreMiComponent implements OnInit {
       empresa: 'Competencias universitarias',
       periodo: '2021 - 2024',
       descripcion:
-        'Participación en torneos universitarios representando a mi universidad. Alcancé el Top 7 veces nacional en Perú y clasifiqué a regionales, en el torneo de interuniversidades"INTERU".'
+        'Participación en torneos universitarios representando a mi universidad. Alcancé el Top 7 veces nacional en Perú y clasifiqué a regionales, en el torneo de interuniversidades "INTERU".'
     }
   ];
 
   constructor(private perfilService: PerfilService) {}
 
   ngOnInit(): void {
+    // 🔹 Ahora esto ya no causará errores, porque perfil está inicializado arriba
     this.perfil = this.perfilService.obtenerPerfil();
   }
 }

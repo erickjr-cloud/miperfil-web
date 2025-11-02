@@ -1,12 +1,15 @@
 <div class="bienvenida-container">
+  <div class="overlay"></div> <!-- 🔹 capa semitransparente para legibilidad -->
+
   <div class="hero-section">
     <div class="hero-image">
-      <img src="assets/perfil-erick.jpg" alt="Foto de Erick" class="perfil-foto" />
+      <img src="img/erick-foto.jpg" alt="Foto de Erick" class="perfil-foto" />
     </div>
 
     <div class="hero-text">
-    <h1 class="titulo-principal" appHighlightOnHover [colorFondo]="'#eef2ff'"> ¡Hola! Soy {{ perfil.nombre | primeraMayuscula }}
-    </h1>
+      <h1 class="titulo-principal" appHighlightOnHover [colorFondo]="'#e0f2fe'">
+        ¡Hola! Soy {{ perfil.nombre | primeraMayuscula }}
+      </h1>
       <h2 class="subtitulo">Ingeniería de Sistemas</h2>
       <p class="descripcion">
         Apasionado por la tecnología y el desarrollo de software.<br />

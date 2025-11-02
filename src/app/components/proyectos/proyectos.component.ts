@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ChangeDetectorRef } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { ProyectosService, Proyecto } from '../../services/proyectos.service';
@@ -21,31 +21,45 @@ import { ProyectoDetalleComponent } from './proyecto-detalle/proyecto-detalle.co
 })
 export class ProyectosComponent implements OnInit {
   proyectos: Proyecto[] = [];
+  proyectosFiltrados: Proyecto[] = [];
   filtro: string = '';
   proyectoSeleccionado?: Proyecto;
-  cargando: boolean = true; // 🔹 indicador de carga
+  cargando: boolean = true;
 
-  constructor(private proyectosService: ProyectosService) {}
+  constructor(
+    private proyectosService: ProyectosService,
+    private cdr: ChangeDetectorRef // ✅ inyectamos ChangeDetectorRef
+  ) {}
 
   ngOnInit(): void {
-    // 🔸 Consumimos el servicio usando Promesa
+    console.log('🔵 Iniciando carga de proyectos...');
+
     this.proyectosService.obtenerProyectosAsync()
       .then((proyectos) => {
         this.proyectos = proyectos;
+        this.proyectosFiltrados = proyectos;
+        this.cargando = false;
+
+        console.log('✅ Proyectos cargados correctamente:', this.proyectos);
+
+        // 👇 Forzamos la actualización del DOM
+        this.cdr.detectChanges();
       })
       .catch((error) => {
-        console.error('Error al obtener proyectos:', error);
-      })
-      .finally(() => {
+        console.error('❌ Error al obtener proyectos:', error);
         this.cargando = false;
+        this.cdr.detectChanges();
       });
   }
 
-  get proyectosFiltrados(): Proyecto[] {
-    if (!this.filtro.trim()) return this.proyectos;
-    return this.proyectos.filter(p =>
-      p.nombre.toLowerCase().includes(this.filtro.toLowerCase())
-    );
+  filtrarProyectos(): void {
+    const texto = this.filtro.trim().toLowerCase();
+    this.proyectosFiltrados =
+      texto === ''
+        ? this.proyectos
+        : this.proyectos.filter((p) =>
+            p.nombre.toLowerCase().includes(texto)
+          );
   }
 
   mostrarDetalles(proyecto: Proyecto): void {

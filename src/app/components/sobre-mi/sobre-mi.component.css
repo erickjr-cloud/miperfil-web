@@ -1,131 +1,185 @@
-/* === Contenedor principal === */
+/* === HOST === */
+:host {
+  display: block;
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+/* === CONTENEDOR PRINCIPAL === */
 .sobre-mi-container {
-  max-width: 1000px;
-  margin: 60px auto;
-  padding: 40px;
-  border-radius: 20px;
-  background: linear-gradient(135deg, #f8f9ff 0%, #ffffff 100%);
-  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
-  font-family: 'Poppins', sans-serif;
-  color: #333;
-  transition: all 0.3s ease;
+  position: relative;
+  width: 100vw;
+  min-height: 100vh;
+  display: flex;
+  background: #0b0b0b;
+  overflow: hidden;
+  color: #fff;
 }
 
-/* === Título principal === */
-.sobre-mi-container h1 {
+/* === FOTO FIJA === */
+.sobre-mi-foto {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 40vw;
+  height: 100vh;
+  overflow: hidden;
+  z-index: 1;
+}
+
+.sobre-mi-foto img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  filter: brightness(0.7);
+}
+
+/* === EFECTO DEGRADADO ELEGANTE === */
+.sobre-mi-foto::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 20%;
+  height: 100%;
+  background: linear-gradient(to right, transparent, rgba(10, 10, 10, 0.95));
+  z-index: 2;
+}
+
+/* === CONTENIDO === */
+.sobre-mi-content {
+  position: relative;
+  margin-left: 40vw;
+  width: 60vw;
+  min-height: 100vh;
+  padding: 3rem 4%;
+  background: rgba(10, 10, 10, 0.7);
+  backdrop-filter: blur(15px);
+  box-shadow: inset 0 0 50px rgba(255, 215, 0, 0.08);
+  z-index: 5;
+  color: #fff;
+  box-sizing: border-box;
+}
+
+/* === TÍTULO PRINCIPAL === */
+.titulo-principal {
   text-align: center;
-  color: #4a4ae6;
   font-size: 2.8rem;
+  font-weight: 800;
+  color: #fff8dc;
   margin-bottom: 2rem;
-  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1);
+  text-shadow: 0 0 20px rgba(255, 215, 0, 0.5);
+  letter-spacing: 1px;
 }
 
-/* === Secciones (info, habilidades, experiencia) === */
+/* === SECCIONES === */
 section {
-  background: white;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 215, 0, 0.15);
   padding: 25px 30px;
   border-radius: 15px;
   margin-bottom: 25px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-section:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
-}
-
-/* === Subtítulos === */
-section h2 {
-  color: #4a4ae6;
-  font-size: 1.6rem;
-  margin-bottom: 1rem;
-  position: relative;
-}
-
-section h2::after {
-  content: "";
-  display: block;
-  width: 60px;
-  height: 3px;
-  background: #4a4ae6;
-  margin-top: 5px;
-  border-radius: 2px;
-}
-
-/* === Información personal === */
-.bio {
-  margin-top: 10px;
-  color: #555;
-  line-height: 1.6;
-  font-size: 1.05rem;
-}
-
-/* === Habilidades === */
-.habilidades-list {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 12px;
-  margin-top: 10px;
-}
-
-.habilidad-tag {
-  background: linear-gradient(135deg, #4a4ae6, #6f86ff);
-  color: white;
-  padding: 10px 16px;
-  border-radius: 20px;
-  font-size: 0.95rem;
-  font-weight: 500;
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
-}
-
-.habilidad-tag:hover {
-  transform: scale(1.05);
-  box-shadow: 0 4px 12px rgba(74, 74, 230, 0.3);
-}
-
-/* === Experiencia === */
-.experiencia-item {
-  margin-bottom: 1.5rem;
-  background-color: #f9f9ff;
-  padding: 20px;
-  border-left: 5px solid #4a4ae6;
-  border-radius: 10px;
+  backdrop-filter: blur(8px);
+  box-shadow: 0 4px 15px rgba(255, 215, 0, 0.15);
   transition: all 0.3s ease;
 }
 
-.experiencia-item:hover {
-  background-color: #eef0ff;
-  transform: translateX(5px);
+section:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 25px rgba(255, 215, 0, 0.4);
+}
+
+/* === SUBTÍTULOS === */
+section h2 {
+  font-size: 1.6rem;
+  margin-bottom: 1rem;
+  font-weight: 700;
+  color: #ffd700;
+  text-shadow: 0 0 10px rgba(255, 215, 0, 0.3);
+}
+
+/* === TEXTO === */
+p, li, span {
+  font-size: 1.05rem;
+  line-height: 1.7;
+  color: #eaeaea;
+}
+
+strong {
+  color: #ffd700;
+}
+
+/* === HABILIDADES === */
+.habilidades-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 15px;
+}
+
+.habilidad-tag {
+  background: rgba(255, 215, 0, 0.15);
+  color: #fff8dc;
+  padding: 8px 16px;
+  border-radius: 20px;
+  font-size: 0.95rem;
+  border: 1px solid rgba(255, 215, 0, 0.3);
+  transition: all 0.3s ease;
+}
+
+.habilidad-tag:hover {
+  background: rgba(255, 215, 0, 0.35);
+  transform: translateY(-3px);
+  box-shadow: 0 0 10px rgba(255, 215, 0, 0.4);
+}
+
+/* === EXPERIENCIA === */
+.experiencia-item {
+  margin-bottom: 25px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.experiencia-item:last-child {
+  border-bottom: none;
 }
 
 .experiencia-item h3 {
-  color: #333;
+  color: #ffd700;
   font-size: 1.3rem;
-  margin-bottom: 0.3rem;
+  margin-bottom: 8px;
+  text-shadow: 0 0 6px rgba(255, 215, 0, 0.2);
 }
 
-.empresa {
-  color: #666;
+.experiencia-item .empresa {
+  color: #d0d0d0;
+  font-size: 0.95rem;
   font-style: italic;
-  margin-bottom: 0.5rem;
+  margin-bottom: 10px;
 }
 
-/* === Responsive === */
+/* === RESPONSIVE === */
 @media (max-width: 768px) {
   .sobre-mi-container {
-    padding: 25px;
+    flex-direction: column;
   }
 
-  section {
-    padding: 20px;
+  .sobre-mi-foto {
+    position: relative;
+    width: 100vw;
+    height: 300px;
   }
 
-  .habilidad-tag {
-    font-size: 0.85rem;
+  .sobre-mi-content {
+    margin-left: 0;
+    width: 100%;
+    padding: 2rem 5%;
   }
 
-  h1 {
+  .titulo-principal {
     font-size: 2.2rem;
   }
 }

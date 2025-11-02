@@ -1,65 +1,100 @@
-/* 🎯 Contenedor principal */
+/* 🎯 CONTENEDOR PRINCIPAL */
 .hobbies-container {
-  max-width: 1000px;
-  margin: 2rem auto;
-  padding: 2.5rem;
-  background: linear-gradient(135deg, #a26dfc, #6d8eff);
-  border-radius: 15px;
+  position: relative;
+  min-height: 100vh;
+  width: 100%;
+  padding: 3rem 2rem;
   text-align: center;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
-  animation: fadeIn 0.8s ease-in-out;
+  overflow: hidden;
+  color: #fff;
+
+  /* 🔹 Fondo global */
+  background: #0b0b0b url("/img/fondo-principal.jpg") no-repeat center center fixed;
+  background-size: cover;
+}
+
+/* 🟦 Capa oscura */
+.hobbies-container::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(10, 10, 10, 0.8);
+  z-index: 1;
+}
+
+/* 🟩 Contenido encima del fondo */
+.hobbies-container > * {
+  position: relative;
+  z-index: 3;
 }
 
 /* 🏷️ Título principal */
 h1 {
-  font-size: 2.4rem;
+  font-size: 2.6rem;
   font-weight: 800;
-  color: #ffffff;
-  text-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+  color: #fff8dc;
+  text-shadow: 0 0 15px rgba(255, 215, 0, 0.6);
   margin-bottom: 1rem;
+  animation: fadeIn 1s ease-in-out;
 }
 
 /* ✨ Descripción inicial */
 .intro {
-  color: #f3f3f3;
-  font-size: 1.1rem;
-  margin-bottom: 2rem;
+  color: #f0e68c;
+  font-size: 1.2rem;
+  margin-bottom: 2.5rem;
   max-width: 700px;
   margin-left: auto;
   margin-right: auto;
+  opacity: 0.9;
+  text-shadow: 0 0 10px rgba(255, 215, 0, 0.3);
 }
 
 /* 📦 Lista de hobbies */
 .hobbies-list {
   display: grid;
-  gap: 1.5rem;
+  gap: 1.8rem;
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  animation: fadeIn 1s ease-in-out;
 }
 
 /* 🧩 Tarjeta individual */
 .hobby-card {
-  background: #ffffff;
-  padding: 1.6rem;
-  border-radius: 12px;
-  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.15);
-  transition: all 0.3s ease;
+  background: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(12px);
+  border-radius: 15px;
+  padding: 2rem;
+  border: 1px solid rgba(255, 215, 0, 0.25);
+  box-shadow: 0 4px 20px rgba(255, 215, 0, 0.15);
+  transition: all 0.4s ease;
   text-align: left;
-  color: #333;
-  transform: translateY(0);
+  color: #fff8dc;
 }
 
+/* ✨ Hover dorado elegante */
 .hobby-card:hover {
-  transform: translateY(-6px) scale(1.02);
-  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.25);
+  transform: translateY(-6px) scale(1.03);
+  background: rgba(25, 25, 25, 0.9);
+  box-shadow: 0 8px 25px rgba(255, 215, 0, 0.4);
+  border-color: rgba(255, 215, 0, 0.6);
+}
+
+.hobby-card:hover h3,
+.hobby-card:hover .label,
+.hobby-card:hover .value,
+.hobby-card:hover .descripcion {
+  color: #fffbe6;
+  text-shadow: 0 0 10px rgba(255, 215, 0, 0.3);
 }
 
 /* 🏅 Nombre del hobby */
 .hobby-card h3 {
   font-size: 1.5rem;
-  color: #4a4ad3;
+  color: #ffd700;
   font-weight: bold;
   margin-bottom: 1rem;
   text-transform: capitalize;
+  text-shadow: 0 0 10px rgba(255, 215, 0, 0.5);
 }
 
 /* 🧾 Filas de información */
@@ -72,22 +107,39 @@ h1 {
 
 .label {
   font-weight: bold;
-  color: #444;
+  color: #f0e68c;
 }
 
 .value {
-  color: #555;
+  color: #fff8dc;
 }
 
 /* 📜 Descripción */
 .descripcion {
   margin-top: 1rem;
-  color: #555;
+  color: #f5f5dc;
   line-height: 1.5;
-  font-size: 0.95rem;
+  font-size: 1rem;
 }
 
-/* ✨ Animación general */
+/* 🟣 Mensaje compartido (desde Deportes) */
+.mensaje-compartido {
+  margin-top: 2rem;
+  text-align: center;
+  font-weight: 600;
+  color: #fff8dc;
+  background-color: rgba(20, 20, 20, 0.85);
+  padding: 10px 15px;
+  border-radius: 10px;
+  width: fit-content;
+  margin-left: auto;
+  margin-right: auto;
+  border: 1px solid rgba(255, 215, 0, 0.3);
+  box-shadow: 0 0 10px rgba(255, 215, 0, 0.2);
+  animation: aparecer 0.6s ease-in-out;
+}
+
+/* ✨ Animaciones suaves */
 @keyframes fadeIn {
   from {
     opacity: 0;
@@ -96,5 +148,35 @@ h1 {
   to {
     opacity: 1;
     transform: translateY(0);
+  }
+}
+
+@keyframes aparecer {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* 📱 Responsive */
+@media (max-width: 768px) {
+  .hobbies-container {
+    padding: 2rem 1rem;
+  }
+
+  h1 {
+    font-size: 2rem;
+  }
+
+  .intro {
+    font-size: 1rem;
+  }
+
+  .hobby-card {
+    padding: 1.5rem;
   }
 }
